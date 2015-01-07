@@ -2,10 +2,13 @@
 @section('content')
 <h2>Users</h2>
 	@if($users)
-
-		@foreach($users as $user)
-			<p>{{$user->email or "Default User Email"}}</p>
-		@endforeach
+		<ul>
+			@foreach($users as $user)
+				<h3>{{{ $user -> title }}}</h3>
+				<p>{{ $user -> email }}</p>
+				<p>{{{ $user -> body }}}</p>
+			@endforeach
+		</ul>
 	@else
 		<p>There are no users here</p>
 	@endif

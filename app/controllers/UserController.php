@@ -9,7 +9,10 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = array();
+		// $users = DB::table('users')->get();
+
+		$users = DB::table('users')->join('posts', 'users.id', '=', 'posts.user_id')->get();
+
 		return View::make('user.index', compact('users'));
 	}
 
@@ -44,10 +47,8 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$user = new Stdclass;
-		$user->email = "user@banana.com";
-		$user->password = Hash::make("secretPassword");
 
+		$user = DB::table('users')->where('id', $id)->first();
 		return View::make('user.show', compact('user','id'));
 		//
 	}

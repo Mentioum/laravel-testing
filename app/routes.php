@@ -21,4 +21,5 @@ Route::resource('user', 'UserController');
 Route::get('login', function()
 {
 	return 'Login Page';
+
 });
