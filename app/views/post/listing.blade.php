@@ -1,0 +1,3 @@
+Listing
+
+{{ route('post.single') }}
