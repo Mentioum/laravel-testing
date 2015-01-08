@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder {
 		{
 			User::create([
 				'email' => $faker->email,
-				'password' => Hash::make($faker->word)
-
+				'password' => Hash::make($faker->word),
+				'permission' => $faker->numberBetween($min=1, $max=2)
 			]);
 		}
 	}
