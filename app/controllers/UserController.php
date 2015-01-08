@@ -75,7 +75,21 @@ class UserController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(
+			Input::all(),
+			array(
+				'email' => 'required|email',
+			)
+
+		);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		dd(Input::all());
+
 	}
 
 
